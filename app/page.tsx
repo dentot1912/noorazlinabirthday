@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
    ═══════════════════════════════════════════════════════════════════════════ */
 const BIRTHDAY_DATE = new Date('2026-07-03T00:00:00');
 const NAME = 'Noor Azlina';
-const SENDER_NAME = 'Aku';
+const SENDER_NAME = 'Seseorang di Masa Lalumu';
 
 /* ── Colors ── */
 const C = {
@@ -42,6 +42,7 @@ const C = {
 
 const SERIF = "'Playfair Display', Georgia, serif";
 const SANS = "'Quicksand', sans-serif";
+const HANDWRITING = "'Caveat', cursive, sans-serif";
 
 /* ── Image paths ── */
 const IMG = {
@@ -121,9 +122,10 @@ const MEMORIES = [
 ];
 
 const QUOTES = [
-  '"Kamu adalah alasan terbaikku untuk tersenyum setiap pagi."',
-  '"Bersamamu, setiap hari terasa seperti petualangan paling indah."',
-  '"Aku tidak perlu bintang di langit selama aku punya kamu."',
+  '"Mungkin kisah kita telah usai sebagai cerita, namun namamu akan senantiasa tersimpan rapi dalam setiap doa baikku."',
+  '"Terima kasih pernah menjadi bagian terindah dalam perjalanan hidup ini, meski kini takdir menuntun kita di jalan yang berbeda."',
+  '"Aku tidak lagi berharap kau kembali, aku hanya berdoa agar dunia selalu memperlakukanmu dengan penuh kelembutan dan kebahagiaan."',
+  '"Beberapa rasa tidak pernah benar-benar hilang, ia hanya menjelma menjadi rasa syukur karena pernah mengenalmu sedalam itu."',
 ];
 
 const CONFETTI_COLORS = [C.blush, C.blushL, C.gold, C.goldL, C.sage, C.blushD];
@@ -237,19 +239,6 @@ function MiniLilyFlower({ size = 38 }: { size?: number }) {
           }}
         />
       ))}
-
-      {/* Center glowing golden core */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 5,
-          width: size * 0.22,
-          height: size * 0.22,
-          borderRadius: '50%',
-          background: `radial-gradient(circle, #ffffff 20%, ${C.gold} 70%, ${C.goldD} 100%)`,
-          boxShadow: '0 0 10px rgba(201,169,110,0.8)',
-        }}
-      />
     </div>
   );
 }
@@ -387,6 +376,13 @@ function HeroSection({ onCelebrate, active = false }: { onCelebrate: () => void;
       <div style={{ position: 'absolute', top: '-15%', right: '-10%', width: '60vw', height: '60vw', borderRadius: '50%', background: `linear-gradient(135deg, ${C.blushL}40, ${C.goldL}30)`, filter: 'blur(80px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-10%', left: '-8%', width: '40vw', height: '40vw', borderRadius: '50%', background: `linear-gradient(135deg, ${C.sage}30, ${C.cream})`, filter: 'blur(60px)', pointerEvents: 'none' }} />
 
+      {/* 🌸 Floating MiniLily in Hero */}
+      <div style={{ position: 'absolute', top: '8%', left: '3%', opacity: 0.22, animation: 'floatY 7s ease-in-out infinite', pointerEvents: 'none' }}><MiniLilyFlower size={42} /></div>
+      <div style={{ position: 'absolute', top: '18%', right: '3%', opacity: 0.15, animation: 'floatY 10s ease-in-out 1.5s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={28} /></div>
+      <div style={{ position: 'absolute', bottom: '10%', left: '5%', opacity: 0.14, animation: 'floatY 9s ease-in-out 0.8s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={32} /></div>
+      <div style={{ position: 'absolute', bottom: '20%', right: '6%', opacity: 0.12, animation: 'floatY 12s ease-in-out 3s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={24} /></div>
+      <div style={{ position: 'absolute', top: '50%', left: '1%', opacity: 0.10, animation: 'floatY 14s ease-in-out 2s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={18} /></div>
+
       <div className="hero-grid" style={{
         display: 'grid', gridTemplateColumns: '1fr 1fr',
         gap: 'clamp(32px, 5vw, 80px)',
@@ -420,16 +416,16 @@ function HeroSection({ onCelebrate, active = false }: { onCelebrate: () => void;
             maxWidth: 420, marginBottom: 32,
             fontFamily: SANS,
           }}>
-            Di hari yang paling spesial ini, aku ingin kamu tahu betapa berarti
-            dan berharganya kamu dalam hidupku. Kamu adalah hadiah terindahku.
+            Di hari bertambahnya usiamu ini, izinkan aku menyampaikan doa tulus dari kejauhan.
+            Meskipun langkah kita tak lagi seiring, segala kebaikan dan memori tentangmu akan selalu kuhormati.
           </p>
 
           <div data-h="btns" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn id="celebrate-btn" onClick={onCelebrate} primary>
-              <PartyPopper size={16} /> Rayakan!
+              <PartyPopper size={16} /> Rayakan Hari Ini
             </Btn>
             <Btn onClick={() => document.getElementById('letter')?.scrollIntoView({ behavior: 'smooth' })} primary={false}>
-              <Mail size={16} /> Baca Suratku
+              <Mail size={16} /> Baca Surat Tulusku
             </Btn>
           </div>
         </div>
@@ -716,7 +712,13 @@ function LetterSection() {
     <section ref={ref} id="letter" style={{
       padding: '120px 5vw', overflow: 'hidden',
       background: C.cream,
+      position: 'relative',
     }}>
+      {/* 🌸 Floating MiniLily in Letter Section */}
+      <div style={{ position: 'absolute', top: '6%', right: '2%', opacity: 0.16, animation: 'floatY 9s ease-in-out 1s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={38} /></div>
+      <div style={{ position: 'absolute', bottom: '8%', left: '2%', opacity: 0.13, animation: 'floatY 11s ease-in-out 2s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={30} /></div>
+      <div style={{ position: 'absolute', top: '40%', left: '0.5%', opacity: 0.10, animation: 'floatY 13s ease-in-out 0.5s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={20} /></div>
+      <div style={{ position: 'absolute', top: '25%', right: '1%', opacity: 0.09, animation: 'floatY 15s ease-in-out 4s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={16} /></div>
       <div className="split-section" style={{
         display: 'grid', gridTemplateColumns: '1fr 1fr',
         gap: 'clamp(40px, 6vw, 88px)',
@@ -734,17 +736,17 @@ function LetterSection() {
             <img src='images/surat.jpeg' alt="Love letter" className="img-cover" />
           </div>
           <div className="polaroid-caption" style={{ marginTop: 12 }}>
-            <h3 className="polaroid-title" style={{ fontSize: 15, marginBottom: 2 }}>Ditulis Dengan Hati</h3>
-            <p className="polaroid-desc" style={{ fontSize: 12 }}>Sebuah pesan rahasia untukmu</p>
+            <h3 className="polaroid-title" style={{ fontSize: 15, marginBottom: 2 }}>Untaian Rasa & Doa</h3>
+            <p className="polaroid-desc" style={{ fontSize: 12 }}>Sebuah pesan tulus yang belum sempat terucap</p>
           </div>
         </div>
 
         {/* ── Text side ── */}
         <div data-lt="text">
-          <SectionLabel text="Khusus Untukmu" />
+          <SectionLabel text="Dari Hati Terdalam" />
           <SectionTitle>Sepucuk<br />Surat</SectionTitle>
           <p style={{ marginTop: 16, fontSize: 15, lineHeight: 1.8, color: C.textM, marginBottom: 28, fontFamily: SANS }}>
-            Aku menulis ini dari hati yang paling dalam untukmu...
+            Kutuliskan pesan ini dengan penuh rasa hormat, kerinduan yang tenang, dan doa-doa terbaik untukmu...
           </p>
 
           {/*
@@ -923,71 +925,71 @@ function LetterSection() {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14, fontSize: 15, lineHeight: 1.95, color: C.textM, fontFamily: SANS }}>
-                    <p data-letter-line>
-                      Happy birthday to one of the purest hearts I know.{" "}
-                      <Heart
-                        size={13}
-                        fill={C.blush}
-                        style={{
-                          color: C.blush,
-                          display: "inline",
-                          verticalAlign: "middle",
-                        }}
-                      />
-                    </p>
+                  <p data-letter-line>
+                    Happy birthday to one of the purest hearts I know.{" "}
+                    <Heart
+                      size={13}
+                      fill={C.blush}
+                      style={{
+                        color: C.blush,
+                        display: "inline",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  </p>
 
-                    <p data-letter-line style={{ color: C.text }}>
-                      Happy birthday, happy celebration of another year filled with millions of
-                      prayers and wishes coming true, and happy growing older. Enjoy this new
-                      chapter of your life with lots of laughter, positivity, and happiness. May
-                      Allah always guide you, Alin. I hope you will always have wonderful days
-                      ahead, filled with love and happiness.
-                    </p>
+                  <p data-letter-line style={{ color: C.text }}>
+                    Happy birthday, happy celebration of another year filled with millions of
+                    prayers and wishes coming true, and happy growing older. Enjoy this new
+                    chapter of your life with lots of laughter, positivity, and happiness. May
+                    Allah always guide you, Alin. I hope you will always have wonderful days
+                    ahead, filled with love and happiness.
+                  </p>
 
-                    <p data-letter-line>
-                      May this new age make your faith and character even better. May you become
-                      more devoted in your worship, be blessed with a long and healthy life,
-                      always be a good daughter to your parents, and may every prayer, dream, and
-                      goal you have come true. May everything you wish for be made easier for you,
-                      aamiin. You have to become more mature than before, okay? Never get tired of
-                      improving yourself and becoming a better person. Keep fighting for
-                      everything you’re working towards, Alin. You can do it, I believe in you!
-                      Fightinggggg!! 🎇✨
-                    </p>
+                  <p data-letter-line>
+                    May this new age make your faith and character even better. May you become
+                    more devoted in your worship, be blessed with a long and healthy life,
+                    always be a good daughter to your parents, and may every prayer, dream, and
+                    goal you have come true. May everything you wish for be made easier for you,
+                    aamiin. You have to become more mature than before, okay? Never get tired of
+                    improving yourself and becoming a better person. Keep fighting for
+                    everything you’re working towards, Alin. You can do it, I believe in you!
+                    Fightinggggg!! 🎇✨
+                  </p>
 
-                    <p data-letter-line style={{ color: C.text }}>
-                      Thank you for holding on and making it this far. I’m so proud of you, Alin,
-                      for doing your best just to be okay. I’m proud of you because I know the
-                      past days might have been difficult for you. I don’t know everything you’ve
-                      been through, but I truly believe you can get through all of it. I hope you
-                      will continue fighting for yourself even when no one else is there to do it
-                      for you. And I hope you know that you deserve every dream you have.
-                    </p>
+                  <p data-letter-line style={{ color: C.text }}>
+                    Thank you for holding on and making it this far. I’m so proud of you, Alin,
+                    for doing your best just to be okay. I’m proud of you because I know the
+                    past days might have been difficult for you. I don’t know everything you’ve
+                    been through, but I truly believe you can get through all of it. I hope you
+                    will continue fighting for yourself even when no one else is there to do it
+                    for you. And I hope you know that you deserve every dream you have.
+                  </p>
 
-                    <p data-letter-line>
-                      Today and every day, I only want to pray for the best for you and your
-                      family. May you always be healthy, always be under Allah’s protection, and
-                      always remain a good person. Never get tired of being a good person, okayyy?
-                      Keep it up, Alin.
-                    </p>
+                  <p data-letter-line>
+                    Today and every day, I only want to pray for the best for you and your
+                    family. May you always be healthy, always be under Allah’s protection, and
+                    always remain a good person. Never get tired of being a good person, okayyy?
+                    Keep it up, Alin.
+                  </p>
 
-                    <p data-letter-line style={{ color: C.text }}>
-                      Keep being happy, Alin. If there is anything more beautiful than a blooming
-                      flower, perhaps it is your sweet smile. Thank you for giving me one of the
-                      best moments of my life on my birthday in Malaysia. That memory left such a
-                      deep impression on me, and I will never forget it for the rest of my life.
-                    </p>
+                  <p data-letter-line style={{ color: C.text }}>
+                    Keep being happy, Alin. If there is anything more beautiful than a blooming
+                    flower, perhaps it is your sweet smile. Thank you for giving me one of the
+                    best moments of my life on my birthday in Malaysia. That memory left such a
+                    deep impression on me, and I will never forget it for the rest of my life.
+                  </p>
 
-                    <p data-letter-line>
-                      And if we are fortunate enough to meet again in heaven someday, I hope Allah
-                      grants you and your family Jannatul Firdaus. Please forgive me for all the
-                      mistakes I’ve made. I know I can never truly repay everything you have done
-                      for me, but I want you to know that I am incredibly grateful.
-                    </p>
+                  <p data-letter-line>
+                    And if we are fortunate enough to meet again in heaven someday, I hope Allah
+                    grants you and your family Jannatul Firdaus. Please forgive me for all the
+                    mistakes I’ve made. I know I can never truly repay everything you have done
+                    for me, but I want you to know that I am incredibly grateful.
+                  </p>
 
-                    <p data-letter-line style={{ color: C.text }}>
-                      Thank you so, so much. Mar
-                    </p>
+                  <p data-letter-line style={{ color: C.text }}>
+                    Thank you so, so much. Mar
+                  </p>
 
                   {/* Signature */}
                   <div data-letter-line style={{
@@ -996,7 +998,7 @@ function LetterSection() {
                     display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
                   }}>
                     <div>
-                      <p style={{ fontSize: 11, color: C.textL, textTransform: 'uppercase', letterSpacing: '0.12em' }}>Dengan Seluruh Cintaku,</p>
+                      <p style={{ fontSize: 11, color: C.textL, textTransform: 'uppercase', letterSpacing: '0.12em' }}>Dengan Segala Doa & Rasa Hormat,</p>
                       <span style={{ fontFamily: SERIF, fontSize: '1.45em', fontStyle: 'italic', color: C.blushD, fontWeight: 600 }}>{SENDER_NAME}</span>
                     </div>
                     <div style={{ display: 'flex', gap: 4 }}>
@@ -1084,13 +1086,13 @@ function MemoriesSection() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 16 }}>
             <MiniLilyFlower size={28} />
             <div style={{ width: 34, height: 1.5, background: C.gold }} />
-            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: C.gold, fontFamily: SANS }}>Kenangan Kita</span>
+            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: C.gold, fontFamily: SANS }}>Jejak Kenangan</span>
             <div style={{ width: 34, height: 1.5, background: C.gold }} />
             <MiniLilyFlower size={28} />
           </div>
-          <SectionTitle center>Momen Tak Terlupakan</SectionTitle>
+          <SectionTitle center>Kepingan Masa Lalu</SectionTitle>
           <p style={{ marginTop: 14, fontSize: 15, color: C.textM, fontFamily: SANS, maxWidth: 460, margin: '14px auto 0', lineHeight: 1.6 }}>
-            Setiap detik bersamamu adalah lembaran berharga dalam buku hidupku.
+            Setiap detik yang pernah kita lewati kini menjadi bagian berharga dalam lembaran hidup yang selalu kusyukuri.
           </p>
         </div>
 
@@ -1274,6 +1276,11 @@ function WishesSection() {
       <Star size={14} style={{ position: 'absolute', top: '25%', right: '10%', color: C.gold, opacity: 0.12, animation: 'floatY 8s ease-in-out 1s infinite' }} />
       <Sparkles size={18} style={{ position: 'absolute', bottom: '15%', left: '12%', color: C.blushL, opacity: 0.16, animation: 'floatY 7s ease-in-out 0.5s infinite' }} />
       <Gem size={14} style={{ position: 'absolute', bottom: '20%', right: '15%', color: C.goldL, opacity: 0.12, animation: 'floatY 9s ease-in-out 1.5s infinite' }} />
+      {/* 🌸 Floating MiniLily in Wishes Section */}
+      <div style={{ position: 'absolute', top: '5%', left: '1%', opacity: 0.18, animation: 'floatY 8s ease-in-out 0.5s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={36} /></div>
+      <div style={{ position: 'absolute', top: '10%', right: '2%', opacity: 0.14, animation: 'floatY 10s ease-in-out 2s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={26} /></div>
+      <div style={{ position: 'absolute', bottom: '5%', right: '1%', opacity: 0.12, animation: 'floatY 12s ease-in-out 1s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={30} /></div>
+      <div style={{ position: 'absolute', bottom: '10%', left: '1%', opacity: 0.10, animation: 'floatY 11s ease-in-out 3s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={20} /></div>
 
       <div style={{ maxWidth: 1160, margin: '0 auto', position: 'relative', zIndex: 5 }}>
         {/* Header */}
@@ -1378,7 +1385,7 @@ const GALLERY_ITEMS = [
   // ── FIRST DATE / MEMORIES ──
   {
     src: 'images/firstdate/img1.jpeg',
-    label: 'First Meet', desc: 'Senyum pertama yang manis dari kamu di pertemuan pertama kita.',
+    label: 'Senyummu', desc: 'Senyum pertama yang manis dari kamu di pertemuan pertama kita.',
     Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
@@ -1388,7 +1395,7 @@ const GALLERY_ITEMS = [
   },
   {
     src: 'images/firstdate/video.mp4',
-    label: 'First Meet Video', desc: 'Pertama kali duduk berdua dan mendengarkan ceritamu.',
+    label: 'Video', desc: 'Pertama kali duduk berdua dan mendengarkan ceritamu.',
     Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
@@ -2020,6 +2027,74 @@ function GallerySection() {
             })}
           </div>
 
+          {/* 📸 Bonus Polaroid Note: itsme.jpeg */}
+          <div style={{
+            marginTop: 56,
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%',
+            padding: '0 16px',
+          }}>
+            <div
+              style={{
+                background: '#ffffff',
+                padding: '16px 16px 22px',
+                borderRadius: 20,
+                boxShadow: '0 16px 36px rgba(45, 31, 20, 0.12), 0 2px 8px rgba(45, 31, 20, 0.06)',
+                border: '1px solid rgba(232, 223, 211, 0.8)',
+                maxWidth: 340,
+                width: '100%',
+                textAlign: 'center',
+                transform: 'rotate(-2deg)',
+                transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                cursor: 'default',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'rotate(0deg) scale(1.03) translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 24px 48px rgba(168, 79, 101, 0.2), 0 6px 16px rgba(45, 31, 20, 0.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'rotate(-2deg) scale(1) translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 16px 36px rgba(45, 31, 20, 0.12), 0 2px 8px rgba(45, 31, 20, 0.06)';
+              }}
+            >
+              {/* Polaroid Frame Photo */}
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                borderRadius: 14,
+                overflow: 'hidden',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                marginBottom: 16,
+                background: '#f5ede4',
+              }}>
+                <img
+                  src="/images/itsme.jpeg"
+                  alt="Selfie edit surat"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    maxHeight: 380,
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </div>
+
+              {/* Sweet Caption */}
+              <p style={{
+                fontFamily: HANDWRITING,
+                fontSize: 19,
+                color: '#6b3040',
+                lineHeight: 1.45,
+                margin: 0,
+                padding: '0 4px',
+              }}>
+                Heheh selfie sedikit ketika edit untuk surat kamu, bahagia selalu ya! ✨🤍
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -2206,7 +2281,7 @@ function VoiceNotePlayer({
             <Mic size={14} color="#fff" />
           </div>
           <span style={{ fontSize: 13, fontWeight: 700, color: '#fff', fontFamily: SANS, letterSpacing: '0.04em' }}>
-            Pesan Suara Spesial
+            Pesan Suara Untukmu
           </span>
         </div>
         <span style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255, 255, 255, 0.85)', fontVariantNumeric: 'tabular-nums', fontFamily: SANS }}>
@@ -2313,7 +2388,7 @@ function FinalSection({
     }}>
       {/* Background photo */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <img src='images/footer.jpeg' alt="Couple sunset" style={{
+        <img src='images/kenangan/img5.png' alt="Couple sunset" style={{
           width: '100%', height: '100%', objectFit: 'cover', display: 'block',
           animation: 'kenBurns 25s ease-in-out infinite',
         }} />
@@ -2353,14 +2428,14 @@ function FinalSection({
             fontWeight: 600, fontFamily: SERIF, fontStyle: 'italic',
             lineHeight: 1.15, color: '#fff', marginBottom: 20,
           }}>
-            Selamat Ulang Tahun,<br />{NAME}!
+            Selamat Ulang Tahun,<br />{NAME}
           </h2>
         </div>
 
         <div style={{ width: 60, height: 1.5, background: 'rgba(255,255,255,0.3)', margin: '0 auto 24px' }} data-f="text" />
 
-        <p data-f="text" style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(255,255,255,0.85)', maxWidth: 480, margin: '0 auto 12px', fontFamily: SANS }}>
-          Heheh selfie sedikit ketika edit untuk surat kamu, bahagia selalu ya!
+        <p data-f="text" style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(255,255,255,0.85)', maxWidth: 520, margin: '0 auto 12px', fontFamily: SANS }}>
+          Meskipun kisah kita telah sampai pada titik akhir, doa terbaikku untuk kebahagiaan dan keselamatanmu tak akan pernah pudar.
         </p>
 
         <div data-f="text" style={{ display: 'flex', justifyContent: 'center', gap: 14, marginBottom: 32 }}>
@@ -2381,7 +2456,7 @@ function FinalSection({
         </div>
 
         <p style={{ marginTop: 36, fontSize: 12, color: 'rgba(255,255,255,0.5)', fontWeight: 600, fontFamily: SANS, letterSpacing: '0.06em' }}>
-          Dibuat dengan <Heart size={10} fill={C.blush} style={{ color: C.blush, display: 'inline', verticalAlign: 'middle' }} />
+          Disampaikan dengan ketulusan & rasa hormat <Heart size={10} fill={C.blush} style={{ color: C.blush, display: 'inline', verticalAlign: 'middle' }} />
         </p>
       </div>
     </section>
@@ -2426,11 +2501,11 @@ function PinLockScreen({ onUnlock, onBlooming }: { onUnlock: () => void; onBloom
       // Attempt Fullscreen
       try {
         if (document.documentElement.requestFullscreen) {
-          document.documentElement.requestFullscreen().catch(() => {});
+          document.documentElement.requestFullscreen().catch(() => { });
         } else if ((document.documentElement as any).webkitRequestFullscreen) {
           (document.documentElement as any).webkitRequestFullscreen();
         }
-      } catch (e) {}
+      } catch (e) { }
 
       // Hide PIN card and trigger bloom overlay at parent level
       setTimeout(() => {
@@ -2447,13 +2522,15 @@ function PinLockScreen({ onUnlock, onBlooming }: { onUnlock: () => void; onBloom
       if (lockRef.current) {
         gsap.fromTo(lockRef.current,
           { x: -12 },
-          { x: 12, duration: 0.08, repeat: 4, yoyo: true, ease: 'power1.inOut', onComplete: () => {
-            gsap.set(lockRef.current, { x: 0 });
-            setTimeout(() => {
-              setPin('');
-              setError(false);
-            }, 500);
-          }}
+          {
+            x: 12, duration: 0.08, repeat: 4, yoyo: true, ease: 'power1.inOut', onComplete: () => {
+              gsap.set(lockRef.current, { x: 0 });
+              setTimeout(() => {
+                setPin('');
+                setError(false);
+              }, 500);
+            }
+          }
         );
       }
     }
@@ -2538,7 +2615,7 @@ function PinLockScreen({ onUnlock, onBlooming }: { onUnlock: () => void; onBloom
           color: C.text,
           marginBottom: 6,
         }}>
-          {success ? 'Akses Diterima ✨' : 'Special Birthday Surprise'}
+          {success ? 'Akses Diterima' : 'Special Birthday Surprise'}
         </h2>
 
         <p style={{
@@ -2558,7 +2635,7 @@ function PinLockScreen({ onUnlock, onBlooming }: { onUnlock: () => void; onBloom
           marginBottom: 26,
           transition: 'color 0.2s ease',
         }}>
-          ( Hint: Her Birthday )
+          ( Hint: 222222 )
         </p>
 
         {/* 5 Digit Indicators */}
@@ -2692,143 +2769,159 @@ function PinLockScreen({ onUnlock, onBlooming }: { onUnlock: () => void; onBloom
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function LilyBloomOverlay() {
-  const lilyPetals = useMemo(() => Array.from({ length: 36 }, (_, i) => ({
-    startX: (i / 36) * 100,
-    delay: (i / 36) * 1.5,
-    size: 20 + (i % 5) * 5,
-    rotate: (i * 43) % 360,
-    drift: ((i % 2 === 0 ? 1 : -1) * (35 + (i % 6) * 18)),
-    dur: 2.4 + (i % 4) * 0.4,
-    color: i % 3 === 0 ? '#f48fb1' : i % 3 === 1 ? '#f8bbd0' : '#ffe082',
-    accentColor: i % 3 === 2 ? '#ffb300' : '#d81b60',
-  })), []);
+  // 120 interlocking Lily flowers creating a seamless blooming & falling blanket
+  const blossoms = useMemo(() => {
+    const count = 120;
+    return Array.from({ length: count }, (_, i) => {
+      // Golden Spiral angle (Phyllotaxis)
+      const goldenAngle = 137.507764;
+      const angle = i * goldenAngle;
+      const rad = (angle * Math.PI) / 180;
+      
+      // Radial distance from center outward
+      const norm = Math.pow(i / count, 0.65);
+      const dist = 3.5 + norm * 62; // 3.5vw at center to 65vw at screen edges
+      
+      const tx = Math.round(Math.cos(rad) * dist * 1.2 * 10) / 10;
+      const ty = Math.round(Math.sin(rad) * dist * 10) / 10;
+
+      // Silky smooth staggered delay from 0s to 1.8s
+      const delay = Math.round((Math.pow(i / (count - 1), 1.25) * 1.8) * 100) / 100;
+      
+      // Fall down drift offsets & speeds
+      const fallDrift = Math.round(((i % 2 === 0 ? 1 : -1) * (15 + (i % 7) * 8)));
+      const fallRotate = (i % 2 === 0 ? 1 : -1) * (160 + (i % 5) * 50);
+      
+      // Dense overlapping sizes (80px - 145px)
+      const size = Math.round(80 + (i % 5) * 12 + (1 - norm) * 25);
+      const rot = Math.round((i * 43) % 360);
+
+      return { tx, ty, delay, size, rot, fallDrift, fallRotate, id: i, zIndex: Math.floor(i / 4) + 10 };
+    });
+  }, []);
 
   return (
     <div
       style={{
         position: 'fixed',
         inset: 0,
-        zIndex: 1000000,
+        zIndex: 999999,
         pointerEvents: 'none',
         overflow: 'hidden',
-        animation: 'overlayContainerFade 4.4s cubic-bezier(0.4, 0, 0.2, 1) forwards',
       }}
     >
-      {/* Soft glowing celebration background that fades */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'radial-gradient(circle at center, rgba(255,245,247,0.96) 0%, rgba(252,232,237,0.95) 60%, rgba(248,220,230,0.98) 100%)',
-        animation: 'lilyBgFade 4.2s cubic-bezier(0.4, 0, 0.2, 1) forwards',
-      }} />
+      <style>{`
+        /* 1. Mother flower at center */
+        @keyframes motherLilySequence {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.2) rotate(-30deg);
+          }
+          18% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.08) rotate(5deg);
+          }
+          32% {
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+          }
+          62% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1) rotate(10deg);
+          }
+          100% {
+            opacity: 0;
+            transform: translate(-50%, calc(-50% + 120vh)) scale(0.9) rotate(220deg);
+          }
+        }
 
-      {/* Ambient center aura */}
-      <div style={{
-        position: 'absolute',
-        top: '40%',
-        left: '50%',
-        width: 320,
-        height: 320,
-        borderRadius: '50%',
-        background: `radial-gradient(circle, ${C.blushL}88 0%, ${C.goldL}55 50%, transparent 70%)`,
-        filter: 'blur(40px)',
-        transform: 'translate(-50%, -50%)',
-        animation: 'lilyAuraSimple 4s ease-out forwards',
-      }} />
+        /* 2. Ultra-smooth radial bloom & outward flow -> 3. Gentle gravity fall down */
+        @keyframes smoothBloomAndFall {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.15) rotate(0deg);
+          }
+          12% {
+            opacity: 1;
+          }
+          48% {
+            opacity: 1;
+            transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1) rotate(180deg);
+          }
+          65% {
+            opacity: 1;
+            transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1) rotate(185deg);
+          }
+          100% {
+            opacity: 0;
+            transform: translate(calc(-50% + var(--dx) + var(--fdrift)), calc(-50% + var(--dy) + 130vh)) scale(0.88) rotate(calc(185deg + var(--frot)));
+          }
+        }
 
-      {/* 40 Lily Petals scattering and falling */}
-      {lilyPetals.map((p, i) => (
+        /* Background soft glow fade */
+        @keyframes bgBloomTransition {
+          0% { opacity: 0; }
+          12% { opacity: 1; }
+          60% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `}</style>
+
+      {/* Ambient bloom background crossfades out as flowers fall */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(255, 240, 245, 0.98) 0%, rgba(253, 226, 236, 0.96) 50%, rgba(248, 205, 222, 0.98) 100%)',
+          animation: 'bgBloomTransition 4.5s ease-out forwards',
+        }}
+      />
+
+      {/* Central Mother Lily Flower */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: 140,
+          height: 140,
+          zIndex: 8,
+          animation: 'motherLilySequence 4.5s cubic-bezier(0.2, 0.9, 0.3, 1) forwards',
+        }}
+      >
+        <div style={{ width: '100%', height: '100%', filter: 'drop-shadow(0 8px 24px rgba(212, 137, 154, 0.6))' }}>
+          <MiniLilyFlower size={140} />
+        </div>
+      </div>
+
+      {/* 120 interlocking Lily flowers */}
+      {blossoms.map((b) => (
         <div
-          key={i}
+          key={b.id}
           style={{
             position: 'absolute',
-            left: `${p.startX}%`,
-            top: -60,
-            width: p.size,
-            height: p.size * 1.5,
-            animation: `lilyPetalFall ${p.dur}s ease-in-out ${p.delay}s forwards`,
-            '--drift': `${p.drift}px`,
+            top: '50%',
+            left: '50%',
+            width: b.size,
+            height: b.size,
+            zIndex: b.zIndex,
+            animation: `smoothBloomAndFall 4.5s cubic-bezier(0.2, 0.85, 0.3, 1) ${b.delay}s both`,
+            '--dx': `${b.tx}vw`,
+            '--dy': `${b.ty}vh`,
+            '--fdrift': `${b.fallDrift}px`,
+            '--frot': `${b.fallRotate}deg`,
           } as React.CSSProperties}
         >
-          <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg"
-            style={{ width: '100%', height: '100%', transform: `rotate(${p.rotate}deg)`, filter: 'drop-shadow(0 4px 10px rgba(212,137,154,0.45))' }}>
-            {/* Main Lily Petal shape */}
-            <path
-              d="M20 2 C28 15 38 32 20 58 C2 32 12 15 20 2 Z"
-              fill={p.color}
-              fillOpacity="0.9"
-            />
-            {/* Center vein */}
-            <path
-              d="M20 6 Q21 30 20 52"
-              stroke={p.accentColor}
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeOpacity="0.6"
-            />
-            {/* Inner highlight */}
-            <path
-              d="M20 8 C24 18 28 28 20 45 C16 28 17 18 20 8 Z"
-              fill="#ffffff"
-              fillOpacity="0.4"
-            />
-          </svg>
+          <div style={{ width: '100%', height: '100%', transform: `rotate(${b.rot}deg)`, filter: 'drop-shadow(0 6px 14px rgba(212, 137, 154, 0.35))' }}>
+            <MiniLilyFlower size={b.size} />
+          </div>
         </div>
       ))}
-
-      {/* Central Lily Flower Blooming */}
-      <div style={{
-        position: 'absolute',
-        top: '42%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        animation: 'lilyCenterScale 3.8s ease-in-out forwards',
-      }}>
-        {/* Outer 6 Lily Petals */}
-        {[0, 60, 120, 180, 240, 300].map((deg, i) => (
-          <div
-            key={`outer-${i}`}
-            style={{
-              position: 'absolute',
-              width: 'clamp(36px, 8vw, 64px)',
-              height: 'clamp(90px, 20vw, 160px)',
-              borderRadius: '50% 50% 40% 40% / 70% 70% 30% 30%',
-              background: i % 2 === 0
-                ? 'linear-gradient(to top, #ec407a, #f8bbd0, #ffffff)'
-                : 'linear-gradient(to top, #f06292, #fce4ec, #ffffff)',
-              transformOrigin: 'bottom center',
-              transform: `rotate(${deg}deg) translateY(-20px)`,
-              boxShadow: '0 6px 20px rgba(236,64,122,0.45)',
-              opacity: 0.95,
-            }}
-          />
-        ))}
-
-        {/* Inner 6 Lily Petals */}
-        {[30, 90, 150, 210, 270, 330].map((deg, i) => (
-          <div
-            key={`inner-${i}`}
-            style={{
-              position: 'absolute',
-              width: 'clamp(28px, 6vw, 50px)',
-              height: 'clamp(70px, 16vw, 125px)',
-              borderRadius: '50% 50% 40% 40% / 70% 70% 30% 30%',
-              background: 'linear-gradient(to top, #f48fb1, #fff0f5, #ffffff)',
-              transformOrigin: 'bottom center',
-              transform: `rotate(${deg}deg) translateY(-14px)`,
-              boxShadow: '0 4px 15px rgba(244,143,177,0.4)',
-              opacity: 0.92,
-            }}
-          />
-        ))}
-
-      </div>
     </div>
   );
 }
+
+
+
 
 /* ═══════════════════════════════════════════════════════════════════════════
    ROOT PAGE
@@ -2841,27 +2934,56 @@ export default function BirthdayPage() {
   const [musicMuted, setMusicMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
+
   // Play background music on unlock
   const startBacksound = () => {
     if (!audioRef.current) {
       const audio = new Audio('/images/backsound.mp3');
       audio.loop = true;
+      audio.crossOrigin = 'anonymous';
       audio.volume = 0.55;
       audioRef.current = audio;
+
+      // Setup Web Audio API for Safari/iOS dynamic volume ducking support
+      try {
+        const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        if (AudioContextClass) {
+          const ctx = new AudioContextClass();
+          const source = ctx.createMediaElementSource(audio);
+          const gainNode = ctx.createGain();
+          gainNode.gain.setValueAtTime(0.55, ctx.currentTime);
+          source.connect(gainNode);
+          gainNode.connect(ctx.destination);
+          audioCtxRef.current = ctx;
+          gainNodeRef.current = gainNode;
+        }
+      } catch (e) {
+        console.warn('Web Audio API setup skipped or failed:', e);
+      }
     }
+
+    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+      audioCtxRef.current.resume().catch(() => { });
+    }
+
     audioRef.current.play().catch((err) => {
       console.log('Autoplay policy caught, will play on user interaction:', err);
     });
   };
 
   const toggleMusic = () => {
+    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+      audioCtxRef.current.resume().catch(() => { });
+    }
     if (!audioRef.current) {
       startBacksound();
       setMusicMuted(false);
       return;
     }
     if (audioRef.current.paused) {
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().catch(() => { });
       setMusicMuted(false);
     } else {
       audioRef.current.pause();
@@ -2874,34 +2996,52 @@ export default function BirthdayPage() {
     setTimeout(() => setConfetti(false), 6000);
     // Ensure backsound is running
     if (audioRef.current && audioRef.current.paused && !musicMuted) {
-      audioRef.current.play().catch(() => {});
+      if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+        audioCtxRef.current.resume().catch(() => { });
+      }
+      audioRef.current.play().catch(() => { });
     }
   };
 
-  // Audio ducking: lower backsound volume when voice note plays
+  // Audio ducking: lower backsound volume when voice note plays (compatible with Safari/iOS)
   const handleVoiceStateChange = (playing: boolean) => {
     if (!audioRef.current) return;
     const targetVolume = playing ? 0.12 : 0.55;
-    
-    // Smooth volume fade
-    const currentVol = audioRef.current.volume;
-    const steps = 10;
-    const diff = (targetVolume - currentVol) / steps;
-    let stepCount = 0;
 
-    const fadeInterval = setInterval(() => {
-      if (!audioRef.current) {
-        clearInterval(fadeInterval);
-        return;
+    // 1. Web Audio API GainNode (Works 100% on Safari iOS / macOS)
+    if (gainNodeRef.current && audioCtxRef.current) {
+      if (audioCtxRef.current.state === 'suspended') {
+        audioCtxRef.current.resume().catch(() => { });
       }
-      stepCount++;
-      const nextVol = Math.max(0, Math.min(1, audioRef.current.volume + diff));
-      audioRef.current.volume = nextVol;
-      if (stepCount >= steps) {
-        audioRef.current.volume = targetVolume;
-        clearInterval(fadeInterval);
-      }
-    }, 40);
+      const currTime = audioCtxRef.current.currentTime;
+      gainNodeRef.current.gain.cancelScheduledValues(currTime);
+      gainNodeRef.current.gain.setValueAtTime(gainNodeRef.current.gain.value, currTime);
+      gainNodeRef.current.gain.linearRampToValueAtTime(targetVolume, currTime + 0.4);
+    }
+
+    // 2. Standard HTMLAudioElement volume fade (for Chrome/Firefox/Edge)
+    try {
+      const currentVol = audioRef.current.volume;
+      const steps = 10;
+      const diff = (targetVolume - currentVol) / steps;
+      let stepCount = 0;
+
+      const fadeInterval = setInterval(() => {
+        if (!audioRef.current) {
+          clearInterval(fadeInterval);
+          return;
+        }
+        stepCount++;
+        const nextVol = Math.max(0, Math.min(1, audioRef.current.volume + diff));
+        audioRef.current.volume = nextVol;
+        if (stepCount >= steps) {
+          audioRef.current.volume = targetVolume;
+          clearInterval(fadeInterval);
+        }
+      }, 40);
+    } catch {
+      // Ignored if read-only on certain WebKit versions
+    }
   };
 
   return (
@@ -2911,7 +3051,7 @@ export default function BirthdayPage() {
         <PinLockScreen
           onUnlock={() => {
             setUnlocked(true);
-            setTimeout(() => setBlooming(false), 1200);
+            setTimeout(() => setBlooming(false), 3800);
             startBacksound();
           }}
           onBlooming={() => {
@@ -2959,6 +3099,65 @@ export default function BirthdayPage() {
       )}
 
       <Confetti active={confetti} />
+
+      {/* 🌸 Global Floating MiniLilyFlower Layer */}
+      {unlocked && (
+        <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1, overflow: 'hidden' }}>
+          {/* Top-left cluster */}
+          <div style={{ position: 'absolute', top: '6%', left: '2%', opacity: 0.18, animation: 'floatY 8s ease-in-out infinite' }}>
+            <MiniLilyFlower size={36} />
+          </div>
+          <div style={{ position: 'absolute', top: '14%', left: '6%', opacity: 0.12, animation: 'floatY 11s ease-in-out 2s infinite' }}>
+            <MiniLilyFlower size={22} />
+          </div>
+
+          {/* Top-right cluster */}
+          <div style={{ position: 'absolute', top: '8%', right: '3%', opacity: 0.15, animation: 'floatY 9s ease-in-out 1s infinite' }}>
+            <MiniLilyFlower size={30} />
+          </div>
+          <div style={{ position: 'absolute', top: '20%', right: '8%', opacity: 0.10, animation: 'floatY 13s ease-in-out 3s infinite' }}>
+            <MiniLilyFlower size={18} />
+          </div>
+
+          {/* Mid-left */}
+          <div style={{ position: 'absolute', top: '38%', left: '1.5%', opacity: 0.13, animation: 'floatY 10s ease-in-out 0.5s infinite' }}>
+            <MiniLilyFlower size={26} />
+          </div>
+
+          {/* Mid-right */}
+          <div style={{ position: 'absolute', top: '42%', right: '2%', opacity: 0.11, animation: 'floatY 12s ease-in-out 4s infinite' }}>
+            <MiniLilyFlower size={32} />
+          </div>
+          <div style={{ position: 'absolute', top: '55%', right: '5%', opacity: 0.09, animation: 'floatY 9s ease-in-out 1.5s infinite' }}>
+            <MiniLilyFlower size={20} />
+          </div>
+
+          {/* Bottom-left */}
+          <div style={{ position: 'absolute', bottom: '18%', left: '3%', opacity: 0.14, animation: 'floatY 11s ease-in-out 2.5s infinite' }}>
+            <MiniLilyFlower size={28} />
+          </div>
+          <div style={{ position: 'absolute', bottom: '8%', left: '7%', opacity: 0.10, animation: 'floatY 14s ease-in-out 0s infinite' }}>
+            <MiniLilyFlower size={16} />
+          </div>
+
+          {/* Bottom-right */}
+          <div style={{ position: 'absolute', bottom: '14%', right: '4%', opacity: 0.13, animation: 'floatY 10s ease-in-out 3.5s infinite' }}>
+            <MiniLilyFlower size={34} />
+          </div>
+          <div style={{ position: 'absolute', bottom: '6%', right: '9%', opacity: 0.09, animation: 'floatY 8s ease-in-out 1s infinite' }}>
+            <MiniLilyFlower size={20} />
+          </div>
+
+          {/* Very subtle center-edge accents */}
+          <div style={{ position: 'absolute', top: '65%', left: '0.5%', opacity: 0.08, animation: 'floatY 15s ease-in-out 6s infinite' }}>
+            <MiniLilyFlower size={14} />
+          </div>
+          <div style={{ position: 'absolute', top: '30%', right: '0.5%', opacity: 0.08, animation: 'floatY 16s ease-in-out 5s infinite' }}>
+            <MiniLilyFlower size={14} />
+          </div>
+        </div>
+      )}
+
       <main
         style={{
           filter: unlocked ? 'none' : 'blur(24px)',

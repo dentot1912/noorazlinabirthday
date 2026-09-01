@@ -1146,6 +1146,35 @@ main {
   }
 }
 
+/* Lily blossom shoots from center → destination, pops open on arrival */
+@keyframes lilyBlossomBurst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.1) rotate(0deg);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(calc(var(--tx) * 0.15), calc(var(--ty) * 0.15)) scale(0.35) rotate(60deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translate(calc(var(--tx) * 0.85), calc(var(--ty) * 0.85)) scale(0.8) rotate(140deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(var(--tx), var(--ty)) scale(1.18) rotate(175deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(var(--tx), var(--ty)) scale(0.92) rotate(185deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(var(--tx), var(--ty)) scale(1.0) rotate(180deg);
+  }
+}
+
+
 @keyframes lilyBgFade {
   0% {
     opacity: 0;
