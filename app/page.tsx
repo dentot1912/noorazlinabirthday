@@ -243,6 +243,134 @@ function MiniLilyFlower({ size = 38 }: { size?: number }) {
   );
 }
 
+/* 🌹 White Rose Component */
+function WhiteRose({ size = 32 }: { size?: number }) {
+  return (
+    <div
+      style={{
+        position: 'relative',
+        width: size,
+        height: size,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        filter: 'drop-shadow(0 3px 10px rgba(212,137,154,0.25))',
+      }}
+    >
+      {/* Soft green leaves behind */}
+      <div
+        style={{
+          position: 'absolute',
+          width: size * 0.45,
+          height: size * 0.7,
+          borderRadius: '80% 0% 80% 0%',
+          background: 'linear-gradient(135deg, #a3b899, #7a9a6f)',
+          transform: 'rotate(-40deg) translate(-25%, -20%)',
+          opacity: 0.75,
+          zIndex: 1,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          width: size * 0.4,
+          height: size * 0.65,
+          borderRadius: '0% 80% 0% 80%',
+          background: 'linear-gradient(225deg, #b5c7ac, #89a87d)',
+          transform: 'rotate(50deg) translate(25%, 20%)',
+          opacity: 0.65,
+          zIndex: 1,
+        }}
+      />
+
+      {/* Layer 1: Outer Petals (5 petals) */}
+      {[0, 72, 144, 216, 288].map((deg, i) => (
+        <div
+          key={`wr-out-${i}`}
+          style={{
+            position: 'absolute',
+            zIndex: 2,
+            width: size * 0.48,
+            height: size * 0.52,
+            borderRadius: '50% 50% 45% 45% / 60% 60% 40% 40%',
+            background: 'linear-gradient(to top, #f5edf0 0%, #ffffff 70%, #fffbfd 100%)',
+            transformOrigin: 'bottom center',
+            transform: `rotate(${deg}deg) translateY(-${size * 0.16}px)`,
+            boxShadow: '0 2px 6px rgba(0,0,0,0.06), inset 0 -2px 4px rgba(220,195,205,0.3)',
+            opacity: 0.98,
+          }}
+        />
+      ))}
+
+      {/* Layer 2: Mid Petals (5 petals offset) */}
+      {[36, 108, 180, 252, 324].map((deg, i) => (
+        <div
+          key={`wr-mid-${i}`}
+          style={{
+            position: 'absolute',
+            zIndex: 3,
+            width: size * 0.38,
+            height: size * 0.44,
+            borderRadius: '50% 50% 45% 45% / 60% 60% 40% 40%',
+            background: 'linear-gradient(to top, #faeef3 0%, #ffffff 80%)',
+            transformOrigin: 'bottom center',
+            transform: `rotate(${deg}deg) translateY(-${size * 0.11}px)`,
+            boxShadow: '0 1px 4px rgba(0,0,0,0.04), inset 0 -1px 3px rgba(212,137,154,0.25)',
+            opacity: 0.96,
+          }}
+        />
+      ))}
+
+      {/* Layer 3: Inner swirl petals (4 petals) */}
+      {[15, 105, 195, 285].map((deg, i) => (
+        <div
+          key={`wr-in-${i}`}
+          style={{
+            position: 'absolute',
+            zIndex: 4,
+            width: size * 0.28,
+            height: size * 0.34,
+            borderRadius: '50% 50% 40% 40%',
+            background: 'linear-gradient(to top, #fce4ec 0%, #fff7f9 60%, #ffffff 100%)',
+            transformOrigin: 'bottom center',
+            transform: `rotate(${deg}deg) translateY(-${size * 0.06}px)`,
+            boxShadow: 'inset 0 -1px 2px rgba(212,137,154,0.35)',
+            opacity: 0.95,
+          }}
+        />
+      ))}
+
+      {/* Center Rose Spiral Heart */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 5,
+          width: size * 0.22,
+          height: size * 0.22,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, #f8bbd0 15%, #fce4ec 55%, #fff 100%)',
+          boxShadow: 'inset 0 0 3px rgba(212,137,154,0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <div
+          style={{
+            width: size * 0.1,
+            height: size * 0.1,
+            borderRadius: '50%',
+            border: '1px solid rgba(212,137,154,0.5)',
+            borderTopColor: 'transparent',
+            transform: 'rotate(45deg)',
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+
 function SectionTitle({ children, center }: { children: React.ReactNode; center?: boolean }) {
   return (
     <h2 style={{
@@ -376,11 +504,15 @@ function HeroSection({ onCelebrate, active = false }: { onCelebrate: () => void;
       <div style={{ position: 'absolute', top: '-15%', right: '-10%', width: '60vw', height: '60vw', borderRadius: '50%', background: `linear-gradient(135deg, ${C.blushL}40, ${C.goldL}30)`, filter: 'blur(80px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-10%', left: '-8%', width: '40vw', height: '40vw', borderRadius: '50%', background: `linear-gradient(135deg, ${C.sage}30, ${C.cream})`, filter: 'blur(60px)', pointerEvents: 'none' }} />
 
-      {/* 🌸 Floating MiniLily in Hero */}
+      {/* 🌸 Floating MiniLily & WhiteRose in Hero */}
       <div style={{ position: 'absolute', top: '8%', left: '3%', opacity: 0.22, animation: 'floatY 7s ease-in-out infinite', pointerEvents: 'none' }}><MiniLilyFlower size={42} /></div>
+      <div style={{ position: 'absolute', top: '14%', left: '6%', opacity: 0.25, animation: 'floatY 9s ease-in-out 1s infinite', pointerEvents: 'none' }}><WhiteRose size={40} /></div>
       <div style={{ position: 'absolute', top: '18%', right: '3%', opacity: 0.15, animation: 'floatY 10s ease-in-out 1.5s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={28} /></div>
+      <div style={{ position: 'absolute', top: '26%', right: '5%', opacity: 0.24, animation: 'floatY 11s ease-in-out 2s infinite', pointerEvents: 'none' }}><WhiteRose size={36} /></div>
       <div style={{ position: 'absolute', bottom: '10%', left: '5%', opacity: 0.14, animation: 'floatY 9s ease-in-out 0.8s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={32} /></div>
+      <div style={{ position: 'absolute', bottom: '15%', left: '2%', opacity: 0.22, animation: 'floatY 10s ease-in-out 3s infinite', pointerEvents: 'none' }}><WhiteRose size={34} /></div>
       <div style={{ position: 'absolute', bottom: '20%', right: '6%', opacity: 0.12, animation: 'floatY 12s ease-in-out 3s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={24} /></div>
+      <div style={{ position: 'absolute', bottom: '8%', right: '3%', opacity: 0.20, animation: 'floatY 13s ease-in-out 1.2s infinite', pointerEvents: 'none' }}><WhiteRose size={38} /></div>
       <div style={{ position: 'absolute', top: '50%', left: '1%', opacity: 0.10, animation: 'floatY 14s ease-in-out 2s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={18} /></div>
 
       <div className="hero-grid" style={{
@@ -714,9 +846,11 @@ function LetterSection() {
       background: C.cream,
       position: 'relative',
     }}>
-      {/* 🌸 Floating MiniLily in Letter Section */}
+      {/* 🌸 Floating Flowers in Letter Section */}
       <div style={{ position: 'absolute', top: '6%', right: '2%', opacity: 0.16, animation: 'floatY 9s ease-in-out 1s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={38} /></div>
+      <div style={{ position: 'absolute', top: '14%', right: '4%', opacity: 0.22, animation: 'floatY 11s ease-in-out 2.5s infinite', pointerEvents: 'none' }}><WhiteRose size={36} /></div>
       <div style={{ position: 'absolute', bottom: '8%', left: '2%', opacity: 0.13, animation: 'floatY 11s ease-in-out 2s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={30} /></div>
+      <div style={{ position: 'absolute', bottom: '14%', left: '4%', opacity: 0.20, animation: 'floatY 10s ease-in-out 1.5s infinite', pointerEvents: 'none' }}><WhiteRose size={34} /></div>
       <div style={{ position: 'absolute', top: '40%', left: '0.5%', opacity: 0.10, animation: 'floatY 13s ease-in-out 0.5s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={20} /></div>
       <div style={{ position: 'absolute', top: '25%', right: '1%', opacity: 0.09, animation: 'floatY 15s ease-in-out 4s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={16} /></div>
       <div className="split-section" style={{
@@ -1276,11 +1410,15 @@ function WishesSection() {
       <Star size={14} style={{ position: 'absolute', top: '25%', right: '10%', color: C.gold, opacity: 0.12, animation: 'floatY 8s ease-in-out 1s infinite' }} />
       <Sparkles size={18} style={{ position: 'absolute', bottom: '15%', left: '12%', color: C.blushL, opacity: 0.16, animation: 'floatY 7s ease-in-out 0.5s infinite' }} />
       <Gem size={14} style={{ position: 'absolute', bottom: '20%', right: '15%', color: C.goldL, opacity: 0.12, animation: 'floatY 9s ease-in-out 1.5s infinite' }} />
-      {/* 🌸 Floating MiniLily in Wishes Section */}
+      {/* 🌸 Floating Flowers in Wishes Section */}
       <div style={{ position: 'absolute', top: '5%', left: '1%', opacity: 0.18, animation: 'floatY 8s ease-in-out 0.5s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={36} /></div>
+      <div style={{ position: 'absolute', top: '12%', left: '3%', opacity: 0.22, animation: 'floatY 10s ease-in-out 2s infinite', pointerEvents: 'none' }}><WhiteRose size={34} /></div>
       <div style={{ position: 'absolute', top: '10%', right: '2%', opacity: 0.14, animation: 'floatY 10s ease-in-out 2s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={26} /></div>
+      <div style={{ position: 'absolute', top: '18%', right: '4%', opacity: 0.20, animation: 'floatY 12s ease-in-out 3s infinite', pointerEvents: 'none' }}><WhiteRose size={38} /></div>
       <div style={{ position: 'absolute', bottom: '5%', right: '1%', opacity: 0.12, animation: 'floatY 12s ease-in-out 1s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={30} /></div>
+      <div style={{ position: 'absolute', bottom: '12%', right: '3%', opacity: 0.22, animation: 'floatY 9s ease-in-out 2.5s infinite', pointerEvents: 'none' }}><WhiteRose size={36} /></div>
       <div style={{ position: 'absolute', bottom: '10%', left: '1%', opacity: 0.10, animation: 'floatY 11s ease-in-out 3s infinite', pointerEvents: 'none' }}><MiniLilyFlower size={20} /></div>
+      <div style={{ position: 'absolute', bottom: '16%', left: '3%', opacity: 0.18, animation: 'floatY 13s ease-in-out 1s infinite', pointerEvents: 'none' }}><WhiteRose size={30} /></div>
 
       <div style={{ maxWidth: 1160, margin: '0 auto', position: 'relative', zIndex: 5 }}>
         {/* Header */}
@@ -3100,14 +3238,17 @@ export default function BirthdayPage() {
 
       <Confetti active={confetti} />
 
-      {/* 🌸 Global Floating MiniLilyFlower Layer */}
+      {/* 🌸 Global Floating Flowers Layer (Lily & White Rose) */}
       {unlocked && (
         <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1, overflow: 'hidden' }}>
           {/* Top-left cluster */}
           <div style={{ position: 'absolute', top: '6%', left: '2%', opacity: 0.18, animation: 'floatY 8s ease-in-out infinite' }}>
             <MiniLilyFlower size={36} />
           </div>
-          <div style={{ position: 'absolute', top: '14%', left: '6%', opacity: 0.12, animation: 'floatY 11s ease-in-out 2s infinite' }}>
+          <div style={{ position: 'absolute', top: '12%', left: '5%', opacity: 0.22, animation: 'floatY 10s ease-in-out 1.5s infinite' }}>
+            <WhiteRose size={34} />
+          </div>
+          <div style={{ position: 'absolute', top: '18%', left: '8%', opacity: 0.12, animation: 'floatY 11s ease-in-out 2s infinite' }}>
             <MiniLilyFlower size={22} />
           </div>
 
@@ -3115,7 +3256,10 @@ export default function BirthdayPage() {
           <div style={{ position: 'absolute', top: '8%', right: '3%', opacity: 0.15, animation: 'floatY 9s ease-in-out 1s infinite' }}>
             <MiniLilyFlower size={30} />
           </div>
-          <div style={{ position: 'absolute', top: '20%', right: '8%', opacity: 0.10, animation: 'floatY 13s ease-in-out 3s infinite' }}>
+          <div style={{ position: 'absolute', top: '15%', right: '6%', opacity: 0.20, animation: 'floatY 11s ease-in-out 2.5s infinite' }}>
+            <WhiteRose size={38} />
+          </div>
+          <div style={{ position: 'absolute', top: '22%', right: '9%', opacity: 0.10, animation: 'floatY 13s ease-in-out 3s infinite' }}>
             <MiniLilyFlower size={18} />
           </div>
 
@@ -3123,12 +3267,18 @@ export default function BirthdayPage() {
           <div style={{ position: 'absolute', top: '38%', left: '1.5%', opacity: 0.13, animation: 'floatY 10s ease-in-out 0.5s infinite' }}>
             <MiniLilyFlower size={26} />
           </div>
+          <div style={{ position: 'absolute', top: '48%', left: '3%', opacity: 0.18, animation: 'floatY 12s ease-in-out 3.5s infinite' }}>
+            <WhiteRose size={32} />
+          </div>
 
           {/* Mid-right */}
           <div style={{ position: 'absolute', top: '42%', right: '2%', opacity: 0.11, animation: 'floatY 12s ease-in-out 4s infinite' }}>
             <MiniLilyFlower size={32} />
           </div>
-          <div style={{ position: 'absolute', top: '55%', right: '5%', opacity: 0.09, animation: 'floatY 9s ease-in-out 1.5s infinite' }}>
+          <div style={{ position: 'absolute', top: '50%', right: '4%', opacity: 0.20, animation: 'floatY 9s ease-in-out 1.2s infinite' }}>
+            <WhiteRose size={36} />
+          </div>
+          <div style={{ position: 'absolute', top: '58%', right: '6%', opacity: 0.09, animation: 'floatY 9s ease-in-out 1.5s infinite' }}>
             <MiniLilyFlower size={20} />
           </div>
 
@@ -3136,24 +3286,30 @@ export default function BirthdayPage() {
           <div style={{ position: 'absolute', bottom: '18%', left: '3%', opacity: 0.14, animation: 'floatY 11s ease-in-out 2.5s infinite' }}>
             <MiniLilyFlower size={28} />
           </div>
-          <div style={{ position: 'absolute', bottom: '8%', left: '7%', opacity: 0.10, animation: 'floatY 14s ease-in-out 0s infinite' }}>
+          <div style={{ position: 'absolute', bottom: '12%', left: '5%', opacity: 0.22, animation: 'floatY 10s ease-in-out 2s infinite' }}>
+            <WhiteRose size={40} />
+          </div>
+          <div style={{ position: 'absolute', bottom: '6%', left: '8%', opacity: 0.10, animation: 'floatY 14s ease-in-out 0s infinite' }}>
             <MiniLilyFlower size={16} />
           </div>
 
           {/* Bottom-right */}
-          <div style={{ position: 'absolute', bottom: '14%', right: '4%', opacity: 0.13, animation: 'floatY 10s ease-in-out 3.5s infinite' }}>
+          <div style={{ position: 'absolute', bottom: '16%', right: '3%', opacity: 0.20, animation: 'floatY 12s ease-in-out 1s infinite' }}>
+            <WhiteRose size={36} />
+          </div>
+          <div style={{ position: 'absolute', bottom: '10%', right: '6%', opacity: 0.13, animation: 'floatY 10s ease-in-out 3.5s infinite' }}>
             <MiniLilyFlower size={34} />
           </div>
-          <div style={{ position: 'absolute', bottom: '6%', right: '9%', opacity: 0.09, animation: 'floatY 8s ease-in-out 1s infinite' }}>
+          <div style={{ position: 'absolute', bottom: '4%', right: '9%', opacity: 0.09, animation: 'floatY 8s ease-in-out 1s infinite' }}>
             <MiniLilyFlower size={20} />
           </div>
 
-          {/* Very subtle center-edge accents */}
-          <div style={{ position: 'absolute', top: '65%', left: '0.5%', opacity: 0.08, animation: 'floatY 15s ease-in-out 6s infinite' }}>
-            <MiniLilyFlower size={14} />
+          {/* Subtle edge accents */}
+          <div style={{ position: 'absolute', top: '65%', left: '1%', opacity: 0.16, animation: 'floatY 14s ease-in-out 4s infinite' }}>
+            <WhiteRose size={26} />
           </div>
-          <div style={{ position: 'absolute', top: '30%', right: '0.5%', opacity: 0.08, animation: 'floatY 16s ease-in-out 5s infinite' }}>
-            <MiniLilyFlower size={14} />
+          <div style={{ position: 'absolute', top: '30%', right: '1%', opacity: 0.16, animation: 'floatY 15s ease-in-out 3s infinite' }}>
+            <WhiteRose size={28} />
           </div>
         </div>
       )}
