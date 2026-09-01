@@ -58,13 +58,13 @@ const IMG = {
 const WISHES = [
   { Icon: Smile, title: 'Endless Happiness', text: 'I wish you endless happiness.' },
   { Icon: Sun, title: 'Good Health', text: 'I wish you good health every single day.' },
-  { Icon: Heart, title: 'Allah’s Protection', text: 'I wish Allah always protects you wherever you go.' },
+  { Icon: Flower2, title: 'Allah’s Protection', text: 'I wish Allah always protects you wherever you go.' },
   { Icon: Wind, title: 'Peace of Heart', text: 'I wish your heart always finds peace.' },
   { Icon: Star, title: 'Stronger Faith', text: 'I wish your faith becomes stronger with every passing year.' },
   { Icon: Sparkles, title: 'Answered Prayers', text: 'I wish all your prayers are heard and answered in the best way.' },
   { Icon: Gem, title: 'Dreams Come True', text: 'I wish your dreams slowly turn into reality.' },
   { Icon: Flame, title: 'Unshakeable Strength', text: 'I wish every difficulty you face makes you stronger.' },
-  { Icon: Heart, title: 'Genuine Love', text: 'I wish you are surrounded by people who genuinely love you.' },
+  { Icon: Flower2, title: 'Genuine Love', text: 'I wish you are surrounded by people who genuinely love you.' },
   { Icon: Flower2, title: 'Beautiful Heart', text: 'I wish you never lose your kind and beautiful heart.' },
   { Icon: Crown, title: 'Courage', text: 'I wish you always have the courage to choose yourself.' },
   { Icon: Sun, title: 'Joy in Small Things', text: 'I wish you find happiness even in the smallest things.' },
@@ -72,7 +72,7 @@ const WISHES = [
   { Icon: Compass, title: 'Steps Closer', text: 'I wish every step you take brings you closer to your dreams.' },
   { Icon: Zap, title: 'Blessed with Strength', text: 'I wish you are always blessed with enough strength when life gets difficult.' },
   { Icon: Sparkles, title: 'Best Version of You', text: 'I wish you continue growing into the best version of yourself.' },
-  { Icon: Heart, title: 'Family Blessings', text: 'I wish your family is always blessed with health and happiness.' },
+  { Icon: Flower2, title: 'Family Blessings', text: 'I wish your family is always blessed with health and happiness.' },
   { Icon: Gem, title: 'Valuable & Deserving', text: 'I wish you never forget how valuable and deserving you are.' },
   { Icon: Smile, title: 'Good People', text: 'I wish you meet people who bring goodness into your life.' },
   { Icon: Moon, title: 'Protected Heart', text: 'I wish your heart is protected from anything that doesn’t deserve it.' },
@@ -643,22 +643,22 @@ function HeroSection({ onCelebrate, active = false }: { onCelebrate: () => void;
             boxShadow: `0 0 8px ${C.blush}`,
           }} />
 
-          {/* Small floating heart accents */}
+          {/* Small floating flower accents */}
           <div className="hero-mini-heart" style={{
             position: "absolute", zIndex: 6,
             bottom: "12%", left: "20%",
             animation: "floatHeart 5s ease-in-out infinite",
-            opacity: 0.6,
+            opacity: 0.8,
           }}>
-            <Heart size={14} fill={C.blushL} color={C.blushL} />
+            <MiniLilyFlower size={18} />
           </div>
           <div className="hero-mini-heart" style={{
             position: "absolute", zIndex: 6,
             top: "20%", right: "20%",
             animation: "floatHeart 4s ease-in-out 1.5s infinite",
-            opacity: 0.45,
+            opacity: 0.8,
           }}>
-            <Heart size={10} fill={C.goldL} color={C.goldL} />
+            <WhiteRose size={18} />
           </div>
 
           {/* Main Image */}
@@ -695,7 +695,7 @@ function HeroSection({ onCelebrate, active = false }: { onCelebrate: () => void;
             }} />
           </div>
 
-          {/* Heart Badge */}
+          {/* Flower Badge */}
           <div
             data-h="img3"
             style={{
@@ -715,7 +715,7 @@ function HeroSection({ onCelebrate, active = false }: { onCelebrate: () => void;
               animation: 'float 4s ease-in-out infinite',
             }}
           >
-            <Heart size={34} fill="#fff" color="#fff" />
+            <MiniLilyFlower size={54} />
           </div>
         </div>
       </div>
@@ -930,7 +930,7 @@ function LetterSection() {
                   transform: 'rotate(4deg)',
                   boxShadow: '0 2px 6px rgba(45,31,20,0.08)',
                 }}>
-                  <Heart size={18} fill={C.blush} style={{ color: C.blush }} />
+                  <MiniLilyFlower size={24} />
                 </div>
 
                 {/* Address lines (decorative) */}
@@ -976,7 +976,7 @@ function LetterSection() {
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       animation: phase === 'closed' ? 'pulseGlow 2.5s ease-in-out infinite' : 'none',
                     }}>
-                      <Heart size={24} fill="#fff" style={{ color: '#fff', filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.2))' }} />
+                      <MiniLilyFlower size={36} />
                     </div>
                   </div>
                 </div>
@@ -1000,7 +1000,7 @@ function LetterSection() {
                     visibility: 'hidden', fontSize: 'clamp(18px, 3vw, 23px)', fontFamily: SERIF,
                     fontStyle: 'italic', fontWeight: 600, color: C.text, marginBottom: 6,
                     lineHeight: 1.3,
-                  }}>Teruntuk Noor Azlina ❤️</h3>
+                  }}>Teruntuk Noor Azlina 🌸</h3>
 
                   <p style={{ visibility: 'hidden', fontSize: 13, color: C.textL, fontFamily: SANS, marginBottom: 20, lineHeight: 1.6 }}>
                     Sebuah pesan yang ditulis dengan seluruh hati...
@@ -1061,9 +1061,8 @@ function LetterSection() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14, fontSize: 15, lineHeight: 1.95, color: C.textM, fontFamily: SANS }}>
                   <p data-letter-line>
                     Happy birthday to one of the purest hearts I know.{" "}
-                    <Heart
-                      size={13}
-                      fill={C.blush}
+                    <Flower2
+                      size={14}
                       style={{
                         color: C.blush,
                         display: "inline",
@@ -1135,9 +1134,9 @@ function LetterSection() {
                       <p style={{ fontSize: 11, color: C.textL, textTransform: 'uppercase', letterSpacing: '0.12em' }}>Dengan Segala Doa & Rasa Hormat,</p>
                       <span style={{ fontFamily: SERIF, fontSize: '1.45em', fontStyle: 'italic', color: C.blushD, fontWeight: 600 }}>{SENDER_NAME}</span>
                     </div>
-                    <div style={{ display: 'flex', gap: 4 }}>
-                      {[Heart, Sparkles, Heart].map((Ic, i) => (
-                        <Ic key={i} size={i === 1 ? 16 : 12} fill={i !== 1 ? C.blush : 'none'}
+                    <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                      {[Flower2, Sparkles, Flower2].map((Ic, i) => (
+                        <Ic key={i} size={i === 1 ? 16 : 14}
                           style={{ color: C.blush, animation: `floatY ${2 + i * 0.4}s ease-in-out infinite` }} />
                       ))}
                     </div>
@@ -1406,7 +1405,7 @@ function WishesSection() {
   return (
     <section ref={ref} id="wishes" style={{ padding: '120px 5vw', background: C.cream, position: 'relative', overflow: 'hidden' }}>
       {/* Background floating element decorations */}
-      <Heart size={16} style={{ position: 'absolute', top: '15%', left: '8%', color: C.blush, opacity: 0.12, animation: 'floatY 6s ease-in-out infinite' }} />
+      <Flower2 size={18} style={{ position: 'absolute', top: '15%', left: '8%', color: C.blush, opacity: 0.18, animation: 'floatY 6s ease-in-out infinite' }} />
       <Star size={14} style={{ position: 'absolute', top: '25%', right: '10%', color: C.gold, opacity: 0.12, animation: 'floatY 8s ease-in-out 1s infinite' }} />
       <Sparkles size={18} style={{ position: 'absolute', bottom: '15%', left: '12%', color: C.blushL, opacity: 0.16, animation: 'floatY 7s ease-in-out 0.5s infinite' }} />
       <Gem size={14} style={{ position: 'absolute', bottom: '20%', right: '15%', color: C.goldL, opacity: 0.12, animation: 'floatY 9s ease-in-out 1.5s infinite' }} />
@@ -1524,22 +1523,22 @@ const GALLERY_ITEMS = [
   {
     src: 'images/firstdate/img1.jpeg',
     label: 'Senyummu', desc: 'Senyum pertama yang manis dari kamu di pertemuan pertama kita.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
     src: 'images/firstdate/img2.jpeg',
     label: 'First Meet', desc: 'Waktu kita masih sama-sama malu dan canggung, tapi bahagia.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
   },
   {
     src: 'images/firstdate/video.mp4',
     label: 'Video', desc: 'Pertama kali duduk berdua dan mendengarkan ceritamu.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
     src: 'images/firstdate/img3.jpeg',
     label: 'Our first picture on genshin', desc: 'Kenangan pertama kita di dunia game favorit.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
   },
   {
     src: 'images/firstdate/img4.jpeg',
@@ -1574,7 +1573,7 @@ const GALLERY_ITEMS = [
   {
     src: 'images/firstdate/img10.jpeg',
     label: 'Beautiful Day', desc: 'Setiap sudut hari terasa istimewa saat dihabiskan bersamamu.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
     src: 'images/firstdate/img11.jpeg',
@@ -1594,7 +1593,7 @@ const GALLERY_ITEMS = [
   {
     src: 'images/firstdate/img14.jpeg',
     label: 'Together With You', desc: 'Berada di sampingmu adalah tempat ternyaman di dunia.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
     src: 'images/firstdate/img15.jpeg',
@@ -1624,7 +1623,7 @@ const GALLERY_ITEMS = [
   {
     src: 'images/firstdate/img20.jpeg',
     label: 'Our Story', desc: 'Halaman demi halaman kisah indah yang kita rajut bersama.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
     src: 'images/firstdate/img21.jpeg',
@@ -1639,7 +1638,7 @@ const GALLERY_ITEMS = [
   {
     src: 'images/firstdate/img23.jpeg',
     label: 'Pure Happiness', desc: 'Kebahagiaan sederhana yang selalu terasa istimewa bersamamu.',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
   },
   {
     src: 'images/firstdate/img24.jpeg',
@@ -1659,7 +1658,7 @@ const GALLERY_ITEMS = [
   {
     src: 'images/firstdate/img27.jpeg',
     label: 'Forever Love', desc: '',
-    Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
+    Icon: Flower2, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
   },
   {
     src: 'images/firstdate/video2.mp4',
@@ -1815,7 +1814,7 @@ function GalleryLightbox({ images, current, onClose, onNav }: {
         {/* Top bar with count, title snippet and close */}
         <div className="clean-lightbox-topbar">
           <div className="clean-lightbox-badge">
-            <Heart size={13} fill="#d4899a" color="#d4899a" />
+            <Flower2 size={14} style={{ color: "#d4899a" }} />
             <span>Foto {current + 1} dari {images.length}</span>
           </div>
 
@@ -1965,7 +1964,7 @@ function GallerySection() {
 
         {/* Floating decorative icons */}
         <Camera data-g="deco" size={24} style={{ position: 'absolute', top: '10%', right: '7%', color: C.blush, opacity: 0.18, animation: 'floatY 7s ease-in-out infinite' }} />
-        <Heart data-g="deco" size={18} style={{ position: 'absolute', top: '22%', left: '4%', color: C.gold, opacity: 0.14, animation: 'floatY 6s ease-in-out 1s infinite' }} />
+        <Flower2 data-g="deco" size={20} style={{ position: 'absolute', top: '22%', left: '4%', color: C.gold, opacity: 0.18, animation: 'floatY 6s ease-in-out 1s infinite' }} />
         <Star data-g="deco" size={16} style={{ position: 'absolute', bottom: '18%', right: '10%', color: C.blushD, opacity: 0.14, animation: 'floatY 8s ease-in-out 0.5s infinite' }} />
         <Sparkles data-g="deco" size={20} style={{ position: 'absolute', bottom: '12%', left: '9%', color: C.sage, opacity: 0.12, animation: 'floatY 9s ease-in-out 2s infinite' }} />
 
@@ -2556,7 +2555,7 @@ function FinalSection({
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             animation: 'pulseGlow 3s ease-in-out infinite',
           }}>
-            <Heart size={36} fill="#fff" style={{ color: '#fff' }} />
+            <MiniLilyFlower size={52} />
           </div>
         </div>
 
@@ -2577,9 +2576,9 @@ function FinalSection({
         </p>
 
         <div data-f="text" style={{ display: 'flex', justifyContent: 'center', gap: 14, marginBottom: 32 }}>
-          {[Heart, Star, Gem, Star, Heart].map((Ic, i) => (
-            <Ic key={i} size={i === 2 ? 22 : 16} fill="rgba(255,255,255,0.8)" style={{
-              color: 'rgba(255,255,255,0.8)',
+          {[Flower2, Star, Gem, Star, Flower2].map((Ic, i) => (
+            <Ic key={i} size={i === 2 ? 22 : 18} style={{
+              color: 'rgba(255,255,255,0.85)',
               animation: `floatY ${2 + i * 0.2}s ease-in-out ${i * 0.1}s infinite`,
             }} />
           ))}
@@ -2593,8 +2592,8 @@ function FinalSection({
           />
         </div>
 
-        <p style={{ marginTop: 36, fontSize: 12, color: 'rgba(255,255,255,0.5)', fontWeight: 600, fontFamily: SANS, letterSpacing: '0.06em' }}>
-          Disampaikan dengan ketulusan & rasa hormat <Heart size={10} fill={C.blush} style={{ color: C.blush, display: 'inline', verticalAlign: 'middle' }} />
+        <p style={{ marginTop: 36, fontSize: 12, color: 'rgba(255,255,255,0.7)', fontWeight: 600, fontFamily: SANS, letterSpacing: '0.06em' }}>
+          Disampaikan dengan ketulusan & rasa hormat <Flower2 size={13} style={{ color: '#f5d5d5', display: 'inline', verticalAlign: 'middle' }} />
         </p>
       </div>
     </section>
@@ -3314,29 +3313,192 @@ export default function BirthdayPage() {
         </div>
       )}
 
-      {/* 🖼️ Full Page Background Image */}
+      {/* 🖼️ Dynamic Combined Background Layer (bg1 - bg7) */}
       <div
         style={{
           position: 'fixed',
           inset: 0,
-          backgroundImage: 'url(/images/background.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          zIndex: 0,
-          opacity: 0.75,
-          pointerEvents: 'none',
-        }}
-      />
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          background: 'linear-gradient(to bottom, rgba(250,246,241,0.25) 0%, rgba(250,246,241,0.40) 50%, rgba(250,246,241,0.30) 100%)',
           zIndex: 0,
           pointerEvents: 'none',
+          overflow: 'hidden',
         }}
-      />
+      >
+        {/* Layer 1: Base Canvas Watercolor Lily (bg1) with soft ambient pulse */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'url(/images/background/bg1.jpeg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.30,
+            filter: 'saturate(1.1) brightness(1.02)',
+            animation: 'bgCrossFade1 14s ease-in-out infinite alternate',
+          }}
+        />
+
+        {/* Layer 2: Subtle Pixel Garden Lily (bg7) layered on top */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'url(/images/background/bg7.jpeg)',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center 40%',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.12,
+            mixBlendMode: 'multiply',
+            animation: 'bgCrossFade2 16s ease-in-out infinite alternate',
+          }}
+        />
+
+        {/* Layer 3: Floating Floral Accents from bg1 to bg7 placed elegantly around page edges */}
+        {/* Top-Left Cluster: Pastel Pixel Bouquet (bg6) & Forget-Me-Not (bg2) */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '2%',
+            left: '-2%',
+            width: 'clamp(140px, 20vw, 240px)',
+            opacity: 0.38,
+            animation: 'bgFloatDrift1 12s ease-in-out infinite',
+            filter: 'drop-shadow(0 8px 24px rgba(212,137,154,0.25))',
+          }}
+        >
+          <img src="/images/background/bg6.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '16%',
+            left: '4%',
+            width: 'clamp(70px, 9vw, 110px)',
+            opacity: 0.42,
+            animation: 'bgFloatDrift2 10s ease-in-out 1s infinite',
+            filter: 'drop-shadow(0 6px 16px rgba(100,149,237,0.2))',
+          }}
+        >
+          <img src="/images/background/bg2.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+
+        {/* Top-Right Cluster: Pink Star Lily (bg3) & Stalk Lily (bg5) */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '4%',
+            right: '-1%',
+            width: 'clamp(130px, 18vw, 220px)',
+            opacity: 0.35,
+            animation: 'bgFloatDrift2 15s ease-in-out infinite',
+            filter: 'drop-shadow(0 8px 20px rgba(212,137,154,0.2))',
+          }}
+        >
+          <img src="/images/background/bg3.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '22%',
+            right: '5%',
+            width: 'clamp(75px, 10vw, 120px)',
+            opacity: 0.38,
+            animation: 'bgFloatDrift3 11s ease-in-out 2s infinite',
+            filter: 'drop-shadow(0 6px 14px rgba(201,169,110,0.2))',
+          }}
+        >
+          <img src="/images/background/bg5.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+
+        {/* Mid-Screen Accents: Blossom (bg4) on left & Soft Bloom (bg7) on right */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '45%',
+            left: '1%',
+            width: 'clamp(80px, 11vw, 130px)',
+            opacity: 0.32,
+            animation: 'bgFloatDrift3 14s ease-in-out 0.5s infinite',
+            filter: 'drop-shadow(0 6px 16px rgba(212,137,154,0.2))',
+          }}
+        >
+          <img src="/images/background/bg4.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '52%',
+            right: '2%',
+            width: 'clamp(85px, 12vw, 140px)',
+            opacity: 0.30,
+            animation: 'bgFloatDrift1 13s ease-in-out 3s infinite',
+            filter: 'drop-shadow(0 6px 16px rgba(212,137,154,0.18))',
+          }}
+        >
+          <img src="/images/background/bg7.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+
+        {/* Bottom Clusters: Bouquet (bg6), Blue Blossom (bg2), Pink Lily (bg3), Stem Lily (bg5), Peach Lily (bg4) */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '4%',
+            left: '-1%',
+            width: 'clamp(120px, 17vw, 210px)',
+            opacity: 0.35,
+            animation: 'bgFloatDrift2 16s ease-in-out 1.5s infinite',
+            filter: 'drop-shadow(0 8px 24px rgba(212,137,154,0.2))',
+          }}
+        >
+          <img src="/images/background/bg5.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '18%',
+            left: '4%',
+            width: 'clamp(70px, 9vw, 110px)',
+            opacity: 0.36,
+            animation: 'bgFloatDrift1 11s ease-in-out 2.5s infinite',
+          }}
+        >
+          <img src="/images/background/bg4.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '3%',
+            right: '-1%',
+            width: 'clamp(140px, 19vw, 230px)',
+            opacity: 0.38,
+            animation: 'bgFloatDrift1 14s ease-in-out 1s infinite',
+            filter: 'drop-shadow(0 8px 24px rgba(212,137,154,0.25))',
+          }}
+        >
+          <img src="/images/background/bg6.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '15%',
+            right: '5%',
+            width: 'clamp(65px, 8.5vw, 105px)',
+            opacity: 0.40,
+            animation: 'bgFloatDrift3 12s ease-in-out 3.5s infinite',
+          }}
+        >
+          <img src="/images/background/bg2.jpeg" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+
+        {/* Soft Ambient Warm Editorial Gradient Wash for Legibility & Romance */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, rgba(250,246,241,0.55) 0%, rgba(250,246,241,0.65) 50%, rgba(250,246,241,0.58) 100%)',
+          }}
+        />
+      </div>
 
       <main
         style={{
