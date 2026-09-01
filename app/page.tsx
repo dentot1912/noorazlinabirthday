@@ -24,9 +24,9 @@ const SENDER_NAME = 'Seseorang di Masa Lalumu';
 
 /* ── Colors ── */
 const C = {
-  bg: '#faf6f1',
-  bg2: '#f3ede4',
-  cream: '#fdfbf8',
+  bg: 'rgba(250, 246, 241, 0.45)',
+  bg2: 'rgba(243, 237, 228, 0.55)',
+  cream: 'rgba(253, 251, 248, 0.50)',
   warm: '#e8dfd3',
   blush: '#d4899a',
   blushL: '#f5d5d5',
@@ -2573,7 +2573,7 @@ function FinalSection({
         <div style={{ width: 60, height: 1.5, background: 'rgba(255,255,255,0.3)', margin: '0 auto 24px' }} data-f="text" />
 
         <p data-f="text" style={{ fontSize: 17, lineHeight: 1.85, color: 'rgba(255,255,255,0.85)', maxWidth: 520, margin: '0 auto 12px', fontFamily: SANS }}>
-          Meskipun kisah kita telah sampai pada titik akhir, doa terbaikku untuk kebahagiaan dan keselamatanmu tak akan pernah pudar.
+          "bahkan,untuk jatuh suka padamu saja aku meminta maaf, bukan karna kau menakutkan, hanya saja aku terlalu enggan untuk mendekat, merasa bahwa kadang dari jauh juga lebih baik, kadang mengagumi seseorang,tidak perlu sampai dia tau,bagaimana cara kita jatuh suka,bukan?, jadi biarkan aku disini mengawasi dan menanti sampai magismu berhenti memikat dan memabukanku, rasanya kurang pantas bila insan sepertiku, bersanding dengan manusia yang mudah untuk di kagumi,sepertimu."
         </p>
 
         <div data-f="text" style={{ display: 'flex', justifyContent: 'center', gap: 14, marginBottom: 32 }}>
@@ -3314,8 +3314,34 @@ export default function BirthdayPage() {
         </div>
       )}
 
+      {/* 🖼️ Full Page Background Image */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          backgroundImage: 'url(/images/background.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 0,
+          opacity: 0.75,
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(250,246,241,0.25) 0%, rgba(250,246,241,0.40) 50%, rgba(250,246,241,0.30) 100%)',
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      />
+
       <main
         style={{
+          position: 'relative',
+          zIndex: 2,
           filter: unlocked ? 'none' : 'blur(24px)',
           opacity: unlocked ? 1 : 0.4,
           transform: unlocked ? 'none' : 'scale(0.98)',

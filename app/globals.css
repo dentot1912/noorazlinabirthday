@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  background: #faf6f1;
+  background: transparent;
   color: #2d1f14;
   font-family: 'Quicksand', sans-serif;
   overflow-x: hidden;
