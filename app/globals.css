@@ -1,0 +1,1262 @@
+@import "tailwindcss";
+
+/* =====================================================================
+   🌸 WARM EDITORIAL THEME — cream, blush, gold
+   ===================================================================== */
+@theme inline {
+  --color-background: #faf6f1;
+  --color-foreground: #2d1f14;
+
+  --color-cream-50: #fdfbf8;
+  --color-cream-100: #faf6f1;
+  --color-cream-200: #f3ede4;
+  --color-cream-300: #e8dfd3;
+
+  --color-blush-200: #f5d5d5;
+  --color-blush-300: #e8b4b8;
+  --color-blush-400: #d4899a;
+  --color-blush-500: #c0687e;
+  --color-blush-600: #a84f65;
+
+  --color-gold-300: #e6cfa0;
+  --color-gold-400: #c9a96e;
+  --color-gold-500: #a88c4f;
+
+  --color-sage-200: #d5ddd2;
+  --color-sage-300: #b8c7b0;
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  background: #faf6f1;
+  color: #2d1f14;
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+::selection {
+  background: #e8b4b8;
+  color: #2d1f14;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3ede4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d4899a, #c9a96e);
+  border-radius: 6px;
+}
+
+/* =====================================================================
+   KEYFRAMES
+   ===================================================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatY {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.18);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.1);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-8vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(212, 137, 154, 0.15), 0 0 60px rgba(201, 169, 110, 0.08);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(212, 137, 154, 0.3), 0 0 100px rgba(201, 169, 110, 0.15);
+  }
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes pulseSparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes floatHeart {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateY(-8px) rotate(8deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-14px) rotate(-3deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(-6px) rotate(5deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* =====================================================================
+   UTILITY CLASSES
+   ===================================================================== */
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 40px rgba(45, 31, 20, 0.12),
+    0 4px 12px rgba(45, 31, 20, 0.06);
+}
+
+.photo-ken-burns .img-cover {
+  animation: kenBurns 20s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #hero {
+    display: block !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 60px 5vw 100px 5vw !important;
+    overflow: visible !important;
+  }
+
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .hero-grid > div:first-child p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-grid > div:first-child [data-h="btns"] {
+    justify-content: center !important;
+  }
+
+  /* ── Hero Photos Container ── */
+  .hero-photos {
+    display: flex !important;
+    width: min(85vw, 380px) !important;
+    height: min(100vw, 440px) !important;
+    max-height: 460px !important;
+    margin: 0 auto 32px auto !important;
+    order: -1 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  /* Main image — identical desktop proportions */
+  .hero-photos [data-h="img1"] {
+    width: 70% !important;
+    height: 75% !important;
+    border-radius: 58% 42% 63% 37% / 38% 62% 38% 62% !important;
+    box-shadow:
+      0 20px 50px rgba(0,0,0,.18),
+      0 0 0 3px rgba(255,255,255,.6),
+      0 0 0 6px rgba(212,137,154,.25) !important;
+  }
+
+  /* Gradient ring behind image — identical desktop size & shape */
+  .hero-photos .hero-ring {
+    width: 78% !important;
+    height: 83% !important;
+    border-radius: 58% 42% 63% 37% / 38% 62% 38% 62% !important;
+    opacity: 0.5 !important;
+    filter: blur(2px) !important;
+  }
+
+  /* Primary glow — scale down for mobile */
+  .hero-photos .hero-glow-primary {
+    width: 260px !important;
+    height: 260px !important;
+    filter: blur(60px) !important;
+  }
+
+  /* Secondary glow — scale down */
+  .hero-photos .hero-glow-secondary {
+    width: 160px !important;
+    height: 160px !important;
+    filter: blur(40px) !important;
+    top: 10% !important;
+    left: 5% !important;
+  }
+
+  /* Heart badge — smaller and tighter */
+  .hero-photos [data-h="img3"] {
+    width: 58px !important;
+    height: 58px !important;
+    right: 6% !important;
+    top: 4% !important;
+    box-shadow:
+      0 8px 24px rgba(255,77,109,.3),
+      0 0 0 3px rgba(255,255,255,.6) !important;
+  }
+
+  .hero-photos [data-h="img3"] svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Sparkle dots — resize for mobile */
+  .hero-sparkle-1 {
+    width: 6px !important;
+    height: 6px !important;
+    top: 10% !important;
+    left: 14% !important;
+  }
+  .hero-sparkle-2 {
+    width: 5px !important;
+    height: 5px !important;
+    bottom: 15% !important;
+    left: 8% !important;
+  }
+  .hero-sparkle-3 {
+    width: 7px !important;
+    height: 7px !important;
+    bottom: 22% !important;
+    right: 5% !important;
+  }
+  .hero-sparkle-4 {
+    width: 4px !important;
+    height: 4px !important;
+    top: 28% !important;
+    right: 3% !important;
+  }
+
+  /* Mini hearts — reposition for mobile */
+  .hero-mini-heart {
+    display: block;
+  }
+
+  .split-section {
+    grid-template-columns: 1fr !important;
+  }
+
+  .memories-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .hero-photos {
+    width: min(90vw, 340px) !important;
+    height: min(105vw, 400px) !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-photos [data-h="img1"] {
+    width: 70% !important;
+    height: 75% !important;
+  }
+
+  .hero-photos .hero-ring {
+    width: 78% !important;
+    height: 83% !important;
+  }
+
+  .hero-photos [data-h="img3"] {
+    width: 48px !important;
+    height: 48px !important;
+    right: 4% !important;
+    top: 6% !important;
+  }
+
+  .hero-photos [data-h="img3"] svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .hero-sparkle {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   📸 MASONRY GALLERY
+   ===================================================================== */
+
+.gallery-masonry {
+  --gallery-cols: 4;
+  columns: var(--gallery-cols);
+  column-gap: 18px;
+}
+
+.gallery-masonry>* {
+  break-inside: avoid;
+  margin-bottom: 18px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-masonry>*:hover {
+  z-index: 10;
+  box-shadow: 0 20px 56px rgba(45, 31, 20, 0.18) !important;
+}
+
+@media (max-width: 1100px) {
+  .gallery-masonry {
+    --gallery-cols: 3;
+  }
+}
+
+@media (max-width: 720px) {
+  .gallery-masonry {
+    --gallery-cols: 2;
+    column-gap: 12px;
+  }
+
+  .gallery-masonry>* {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery-masonry {
+    --gallery-cols: 1;
+  }
+}
+
+/* =====================================================================
+   🌸 SCRAPBOOK TIMELINE & POLAROID CARDS
+   ===================================================================== */
+.timeline-container {
+  position: relative;
+  max-width: 1060px;
+  margin: 60px auto 0;
+  padding: 20px 0;
+}
+
+/* Dashed vertical guideline */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom,
+      #c9a96e 0px,
+      #c9a96e 10px,
+      transparent 10px,
+      transparent 20px);
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-left {
+  flex-direction: row;
+}
+
+.timeline-right {
+  flex-direction: row-reverse;
+}
+
+.timeline-side {
+  width: 44%;
+  position: relative;
+  z-index: 5;
+}
+
+.timeline-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dotted timeline intersection */
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #d4899a;
+  box-shadow: 0 4px 16px rgba(212, 137, 154, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-dot::after {
+  content: '♥';
+  font-size: 11px;
+  color: #d4899a;
+  transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: #d4899a;
+  border-color: #fff;
+  transform: scale(1.25);
+  box-shadow: 0 0 24px rgba(212, 137, 154, 0.6);
+}
+
+.timeline-item:hover .timeline-dot::after {
+  color: #fff;
+}
+
+/* Horizontal connectors */
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  z-index: 2;
+}
+
+.timeline-left .timeline-connector {
+  left: 44%;
+  width: 6.5%;
+  background: linear-gradient(90deg, transparent, #c9a96e);
+}
+
+.timeline-right .timeline-connector {
+  right: 44%;
+  width: 6.5%;
+  background: linear-gradient(270deg, transparent, #c9a96e);
+}
+
+/* Polaroid Photo Card */
+.polaroid-card {
+  position: relative;
+  background: #fff;
+  padding: 16px 16px 22px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(45, 31, 20, 0.06);
+  box-shadow:
+    0 16px 38px rgba(45, 31, 20, 0.06),
+    0 2px 6px rgba(45, 31, 20, 0.02);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: block;
+  overflow: visible;
+}
+
+.polaroid-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.01);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.polaroid-card:hover {
+  transform: translateY(-12px) scale(1.025) rotate(0deg) !important;
+  box-shadow:
+    0 32px 64px rgba(45, 31, 20, 0.16),
+    0 8px 20px rgba(45, 31, 20, 0.05);
+  z-index: 20;
+}
+
+/* Washi Tape Graphic */
+.polaroid-washi {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 90px;
+  height: 24px;
+  background: rgba(212, 137, 154, 0.25);
+  backdrop-filter: blur(1.5px);
+  border-left: 2px dashed rgba(255, 255, 255, 0.4);
+  border-right: 2px dashed rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px rgba(45, 31, 20, 0.05);
+  z-index: 10;
+  transition: all 0.4s ease;
+}
+
+.polaroid-card:hover .polaroid-washi {
+  background: rgba(212, 137, 154, 0.45);
+  transform: translateX(-50%) translateY(-2px) scale(1.08) rotate(0deg);
+}
+
+.polaroid-photo {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.polaroid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.polaroid-card:hover .polaroid-photo img {
+  transform: scale(1.1);
+}
+
+.polaroid-caption {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.polaroid-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d1f14;
+  margin-bottom: 5px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.polaroid-card:hover .polaroid-title {
+  color: #d4899a;
+}
+
+.polaroid-desc {
+  font-size: 12.5px;
+  color: #6b5a4e;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.4;
+}
+
+/* Polaroid Icon Indicator */
+.polaroid-icon-pin {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(45, 31, 20, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all 0.3s ease;
+  color: #c9a96e;
+}
+
+.polaroid-card:hover .polaroid-icon-pin {
+  background: #d4899a;
+  border-color: #d4899a;
+  color: #fff !important;
+  transform: scale(1.15) rotate(15deg);
+  box-shadow: 0 6px 16px rgba(212, 137, 154, 0.3);
+}
+
+/* Scrapbook responsive styles */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-item {
+    flex-direction: row !important;
+    padding-left: 45px;
+    margin-bottom: 50px;
+  }
+
+  .timeline-side {
+    width: 100%;
+  }
+
+  .timeline-center {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-connector {
+    display: none !important;
+  }
+
+  .timeline-spacer {
+    display: none !important;
+  }
+
+  .polaroid-photo {
+    height: 200px;
+  }
+}
+
+/* =====================================================================
+   🌸 WISHES SECTION CARDS
+   ===================================================================== */
+.wish-card {
+  position: relative;
+  background: #fff;
+  border-radius: 24px;
+  padding: 38px 32px;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  box-shadow: 0 10px 30px rgba(45, 31, 20, 0.03), 0 1px 3px rgba(45, 31, 20, 0.01);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: default;
+}
+
+.wish-card:hover {
+  transform: translateY(-10px) scale(1.018);
+  box-shadow:
+    0 24px 60px rgba(212, 137, 154, 0.12),
+    0 0 0 2px rgba(212, 137, 154, 0.22);
+  border-color: rgba(212, 137, 154, 0.25);
+}
+
+.wish-icon-container {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f5d5d550, #fdfbf8);
+  border: 1px solid #f5d5d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(245, 213, 213, 0.3);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.wish-card:hover .wish-icon-container {
+  background: linear-gradient(135deg, #d4899a, #a84f65) !important;
+  border-color: #d4899a !important;
+  box-shadow: 0 10px 24px rgba(212, 137, 154, 0.45) !important;
+  transform: scale(1.1) rotate(6deg);
+}
+
+.wish-card:hover .wish-icon-container svg {
+  color: #fff !important;
+}
+
+.wish-card-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0;
+  background: linear-gradient(90deg, #d4899a, #c9a96e);
+  transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.wish-card:hover .wish-card-line {
+  width: 100%;
+}
+
+.wish-card-number {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 80px;
+  font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: rgba(230, 207, 160, 0.16);
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.wish-card:hover .wish-card-number {
+  color: rgba(212, 137, 154, 0.22);
+  transform: translateY(2px) scale(1.06);
+}
+
+/* ── Wishes Slider Styles ── */
+.wishes-slider-container {
+  position: relative;
+  width: 100%;
+  padding: 10px 0 20px;
+}
+
+.wishes-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 16px 12px 28px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.wishes-track:active {
+  cursor: grabbing;
+}
+
+.wishes-track::-webkit-scrollbar {
+  display: none;
+}
+
+.wishes-slide-item {
+  flex: 0 0 calc(33.333% - 14px);
+  min-width: 290px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  user-select: none;
+}
+
+@media (max-width: 960px) {
+  .wishes-slide-item {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 270px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wishes-slide-item {
+    flex: 0 0 86%;
+    min-width: 240px;
+  }
+}
+
+.wishes-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #f5d5d5;
+  color: #a84f65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(168, 79, 101, 0.12);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.wishes-nav-btn:hover:not(:disabled) {
+  background: #d4899a;
+  border-color: #d4899a;
+  color: #fff;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 20px rgba(168, 79, 101, 0.28);
+}
+
+.wishes-nav-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.96);
+}
+
+.wishes-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* =====================================================================
+   🌸 CLEAN & SIMPLE CUTE LIGHTBOX
+   ===================================================================== */
+.clean-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(22, 14, 12, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+  animation: lbOverlayFade 0.25s ease-out forwards;
+}
+
+@keyframes lbOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lbCardPop {
+  0% { opacity: 0; transform: scale(0.92) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.clean-lightbox-card {
+  background: #ffffff;
+  border-radius: 28px;
+  max-width: 540px;
+  width: 100%;
+  max-height: 88vh;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(212, 137, 154, 0.2),
+    0 0 0 1px rgba(245, 213, 213, 0.6);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  position: relative;
+  animation: lbCardPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.clean-lightbox-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #fffdfc;
+  border-bottom: 1px solid rgba(245, 213, 213, 0.4);
+  flex-shrink: 0;
+}
+
+.clean-lightbox-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fdf5f6;
+  border: 1px solid #fbdce2;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #a84f65;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0 2px 8px rgba(212, 137, 154, 0.1);
+}
+
+.clean-lightbox-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #f5d5d5;
+  background: #fdf8f7;
+  color: #a84f65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(168, 79, 101, 0.08);
+}
+
+.clean-lightbox-close:hover {
+  background: #d4899a;
+  border-color: #d4899a;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.08);
+  box-shadow: 0 4px 12px rgba(168, 79, 101, 0.25);
+}
+
+.clean-lightbox-media-wrap {
+  position: relative;
+  width: 100%;
+  height: 52vh;
+  min-height: 280px;
+  background: #f9f5f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.clean-lightbox-media {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.clean-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #a84f65;
+  box-shadow: 0 6px 18px rgba(45, 31, 20, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.clean-nav-btn:hover {
+  background: #d4899a;
+  border-color: #d4899a;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 8px 24px rgba(168, 79, 101, 0.35);
+}
+
+.clean-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.clean-nav-btn.prev {
+  left: 16px;
+}
+
+.clean-nav-btn.next {
+  right: 16px;
+}
+
+.clean-lightbox-footer {
+  padding: 18px 24px 22px;
+  background: #ffffff;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(245, 213, 213, 0.3);
+}
+
+.clean-lightbox-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d1f14;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.clean-lightbox-desc {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #6b5a4e;
+}
+
+@media (max-width: 640px) {
+  .clean-lightbox-overlay {
+    padding: 12px;
+  }
+
+  .clean-lightbox-card {
+    border-radius: 24px;
+    max-height: 92vh;
+  }
+
+  .clean-lightbox-topbar {
+    padding: 12px 16px;
+  }
+
+  .clean-lightbox-media-wrap {
+    height: 46vh;
+    min-height: 240px;
+  }
+
+  .clean-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .clean-nav-btn.prev {
+    left: 10px;
+  }
+
+  .clean-nav-btn.next {
+    right: 10px;
+  }
+
+  .clean-lightbox-footer {
+    padding: 14px 18px 18px;
+  }
+
+  .clean-lightbox-title {
+    font-size: 1.15rem;
+  }
+
+  .clean-lightbox-desc {
+    font-size: 12.5px;
+  }
+}
+
+/* =====================================================================
+   🌸 FLOWER BLOOMING SCENE ANIMATIONS
+   ===================================================================== */
+/* --- Lily Petal Rain Celebration Keyframes --- */
+
+@keyframes overlayContainerFade {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes lilyBgFade {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes lilyAuraSimple {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  60% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  85% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* Petals falling smoothly down full screen with dynamic drift */
+@keyframes lilyPetalFall {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.65);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(14vh) translateX(calc(var(--drift, 35px) * 0.25)) rotate(80deg) scale(1);
+  }
+  75% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(115vh) translateX(var(--drift, 35px)) rotate(380deg) scale(0.9);
+  }
+}
+
+/* Center lily blooming and opening up */
+@keyframes lilyCenterScale {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(-35deg);
+  }
+  28% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1) rotate(4deg);
+  }
+  48% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.97) rotate(-1deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.03) rotate(0deg);
+  }
+  85% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.06) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.18) rotate(0deg);
+  }
+}
+
+/* Title text fade */
+@keyframes lilyTitleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes textFadeIn {
+  0% { opacity: 0; transform: translateY(16px); }
+  40% { opacity: 0; }
+  100% { opacity: 1; transform: translateY(0); }
+}
