@@ -1495,7 +1495,7 @@ const GALLERY_ITEMS = [
   },
   {
     src: 'images/firstdate/img22.jpeg',
-    label: 'Endless Journey', desc: 'Perjalanan cinta kita yang akan terus melangkah ke depan.',
+    label: 'Endless Journey', desc: '',
     Icon: Compass, accent: '#d4899a', tag: 'Memories', rowSpan: 2,
   },
   {
@@ -1520,7 +1520,7 @@ const GALLERY_ITEMS = [
   },
   {
     src: 'images/firstdate/img27.jpeg',
-    label: 'Forever Love', desc: 'Kisah cinta kita yang akan selalu terjaga dan abadi.',
+    label: 'Forever Love', desc: '',
     Icon: Heart, accent: '#d4899a', tag: 'Memories', rowSpan: 1,
   },
   {
